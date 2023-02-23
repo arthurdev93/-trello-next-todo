@@ -97,24 +97,20 @@ export default function Home() {
 		/>
 		<div className='flex flex-row h-screen w-screen'>
 			<div className='flex w-2/12 bg-indigo-500 text-white'> 
-			<h1>
-			ESQUERDA 
-			</h1>
+				<div className='text-4xl text-slate-800 font-mono'>To Do List</div>	
 			</div>
 			<div className='bg-black w-8/12'>
-				<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
-					<div className='flex flex-row gap-2'>
-						<div className='text-4xl text-slate-800 font-mono'>To Do List</div>				
-						<div className="container mx-auto px-4 mt-12">
-							<SearchField />
-						</div>
-						<button className='ml-auto inline-flex items-center rounded-full border text-white p-2 bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500 '
-							onClick={() => setOpenModal(true)}
-						>
-							<PlusIconMini className="h-7 w-7" aria-hidden="true"/>
-						</button>
-
+				<header className='flex flex-row p-0 m-3 bg-yellow-300'>
+					<div className="container mx-4 max-h-1">
+						<SearchField />
 					</div>
+				<button className='flex max-h-fit rounded-md border text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
+					onClick={() => setOpenModal(true)}
+				>
+				<p className='max-h-fit'> ADD NEW TASK </p>
+				</button>
+				</header>
+				<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
 
 					<div className="container flex flex-col items-center justify-center w-full mx-auto bg-white rounded-lg shadow dark:bg-gray-800 my-2">
 						<div className="w-full px-4 py-5 border-b sm:px-6">
@@ -158,7 +154,7 @@ export default function Home() {
 			</div>
 			<div className='flex w-2/12 bg-red-500 text-white'> 
 			<h1>
-			DIREITA
+			MENU DIREITA
 			</h1>
 			</div>
 		</div>
