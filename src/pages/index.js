@@ -95,59 +95,71 @@ export default function Home() {
 			setOpen={setOpenModal}
 			open={openModal}
 		/>
-		<div className='flex h-screen w-screen items-center bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600'>
-			<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
-				<div className='flex flex-row gap-2'>
-					<div className='text-4xl text-slate-800 font-mono'>To Do List</div>				
-					<div className="container mx-auto px-4 mt-12">
-						<SearchField />
-					</div>
-					<button className='ml-auto inline-flex items-center rounded-full border text-white p-2 bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500 '
-						onClick={() => setOpenModal(true)}
-					>
-        				<PlusIconMini className="h-7 w-7" aria-hidden="true"/>
-					</button>
+		<div className='flex flex-row h-screen w-screen'>
+			<div className='flex w-2/12 bg-indigo-500 text-white'> 
+			<h1>
+			ESQUERDA 
+			</h1>
+			</div>
+			<div className='bg-black w-8/12'>
+				<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
+					<div className='flex flex-row gap-2'>
+						<div className='text-4xl text-slate-800 font-mono'>To Do List</div>				
+						<div className="container mx-auto px-4 mt-12">
+							<SearchField />
+						</div>
+						<button className='ml-auto inline-flex items-center rounded-full border text-white p-2 bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500 '
+							onClick={() => setOpenModal(true)}
+						>
+							<PlusIconMini className="h-7 w-7" aria-hidden="true"/>
+						</button>
 
-				</div>
-
-				<div className="container flex flex-col items-center justify-center w-full mx-auto bg-white rounded-lg shadow dark:bg-gray-800 my-2">
-					<div className="w-full px-4 py-5 border-b sm:px-6">
-						<h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
-							Task's List
-						</h3>
-						<p className="max-w-2xl mt-1 text-sm text-gray-500 dark:text-gray-200">
-							Manage your Taks
-						</p>
 					</div>
-					<ul className="flex flex-col divide-y divide w-full">
-						{
-							tasks.map((task) => (
-								<li className="flex flex-row" key={task.id}>
-									<div className="flex items-center flex-1 p-4">
-										<div className="flex-1 pl-1 mr-16">
-											<div className="font-medium text-lg dark:text-white">
-												{task.title}
+
+					<div className="container flex flex-col items-center justify-center w-full mx-auto bg-white rounded-lg shadow dark:bg-gray-800 my-2">
+						<div className="w-full px-4 py-5 border-b sm:px-6">
+							<h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+								Task's List
+							</h3>
+							<p className="max-w-2xl mt-1 text-sm text-gray-500 dark:text-gray-200">
+								Manage your Taks
+							</p>
+						</div>
+						<ul className="flex flex-col divide-y divide w-full">
+							{
+								tasks.map((task) => (
+									<li className="flex flex-row" key={task.id}>
+										<div className="flex items-center flex-1 p-4">
+											<div className="flex-1 pl-1 mr-16">
+												<div className="font-medium text-lg dark:text-white">
+													{task.title}
+												</div>
 											</div>
+											<button className="flex text-right px-2"
+												onClick={() => updateTask(task)}
+											>
+												<PencilIcon className='h-5 w-5 text-gray-800 hover:text-blue-700'/>
+											</button>
+											<button className="flex text-right"
+												onClick={() => removeTask(task.id)}
+											>
+												<TrashIcon className='h-5 w-5 text-gray-800 hover:text-blue-800'/>
+											</button>
 										</div>
-										<button className="flex text-right px-2"
-											onClick={() => updateTask(task)}
-										>
-											<PencilIcon className='h-5 w-5 text-gray-800 hover:text-blue-700'/>
-										</button>
-										<button className="flex text-right"
-											onClick={() => removeTask(task.id)}
-										>
-											<TrashIcon className='h-5 w-5 text-gray-800 hover:text-blue-800'/>
-										</button>
-									</div>
-								</li>
+									</li>
 
-							))
-						}
-						
-					</ul>
+								))
+							}
+							
+						</ul>
+					</div>
+
 				</div>
-
+			</div>
+			<div className='flex w-2/12 bg-red-500 text-white'> 
+			<h1>
+			DIREITA
+			</h1>
 			</div>
 		</div>
 	</>
