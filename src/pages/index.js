@@ -107,7 +107,7 @@ export default function Home() {
 				<button className='flex max-h-fit rounded-md border text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
 					onClick={() => setOpenModal(true)}
 				>
-				<p className='max-h-fit'> ADD NEW TASK </p>
+				<p className='max-h-fit'>ADD NEW TASK</p>
 				</button>
 				</header>
 				<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
