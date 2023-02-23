@@ -10,4 +10,5 @@
 - NextJS
 - TailwindCSS
 
-**LIVE DEMO
+INSPIRED ON THIS PROJECT:
+https://reactjsexample.com/a-task-organizer-to-do-list-made-with-react-js-and-tailwind-css/
