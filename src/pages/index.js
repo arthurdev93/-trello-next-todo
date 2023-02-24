@@ -100,16 +100,16 @@ export default function Home() {
 				<div className='text-3xl text-white font-mono'>To Do List</div>	
 			</div>
 			<div className='bg-gray-800 w-8/12'>
-				<header className='flex flex-row p-0 m-3 bg-yellow-300'>
-					<div className="flex mx-2 max-h-1">
-						<SearchField 
-							className='bg-gray-700'
-						/>
+				<header className='flex flex-row p-0 m-3'>
+					<div className="container my-auto mx-2">
+						<SearchField />
 					</div>
-				<button className='flex max-h-fit rounded-md border text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
+				<button className='flex flex-none justify-center items-center rounded-md border px-2 text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
 					onClick={() => setOpenModal(true)}
 				>
-				<p className='flex m-0 max-h-fit'>ADD NEW TASK</p>
+				<p>
+					ADD TASK
+				</p>
 				</button>
 				</header>
 				<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
@@ -120,7 +120,7 @@ export default function Home() {
 								Task's List
 							</h3>
 							<p className="max-w-2xl mt-1 text-sm text-gray-500 dark:text-gray-200">
-								Manage your Taks
+								Manage your Tasks
 							</p>
 						</div>
 						<ul className="flex flex-col divide-y divide w-full">
