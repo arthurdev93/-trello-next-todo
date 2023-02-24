@@ -18,16 +18,16 @@ const labels = [
         value: null
     },
 	{ 
-        name: 'Engineering',
-        value: 'engineering' 
+        name: 'To Do',
+        value: 'todo' 
     },
 	{ 
-        name: 'Marketing',
-        value: 'marketing' 
+        name: 'Doing',
+        value: 'doing' 
     },
 	{ 
-        name: 'Sales',
-        value: 'sales' 
+        name: 'Done',
+        value: 'done' 
     }
 	// More items...
 ]

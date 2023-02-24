@@ -1,2 +1,12 @@
 >>TASK 
 - baseado na trello, colunas de diretórios como ex: backlog, sprint...e dentro de cada uma, são inseridas as tarefas em lista...uma abaixo da outra
+
+>>LABELS
+- todo
+- doing
+- done
+
+>>COMPONENTES (cada componente é um arquivo separado)
+- menu todo list da esquerda
+- bloquinho cinza da task 
+- menun direita
