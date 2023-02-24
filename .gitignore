@@ -1,0 +1,11 @@
+.env
+.env.development
+.env.production
+.env.test
+
+.next
+build/
+node_modules/
+out/
+yarn-error.log
+yarn.lock

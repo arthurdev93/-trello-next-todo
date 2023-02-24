@@ -28,8 +28,8 @@ export default function searchField() {
     
               <Combobox onChange={(person) => (window.location = person.url)}>
                 <Combobox.Input
-                  className="w-full rounded-md border-0 bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
-                  placeholder="Search..."
+                  className="w-11/12 rounded-md border-0 bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
+                  placeholder="Search Tasks..."
                   onChange={(event) => setQuery(event.target.value)}
                 />
 
