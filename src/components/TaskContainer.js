@@ -84,36 +84,44 @@ export default function TaskContainer() {
 	}
 
     return (
-    <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
-    <div className='text-gray-800'>
-        TO DO
-    </div>
-    <ul className="flex flex-col gap-1">
-        {
-            tasks.map((task) => (
-                <li className="flex-row bg-white rounded-md shadow-md" key={task.id}>
-                    <div className="flex items-center p-4">
-                        <div className="flex-1 pl-1 mr-16">
-                            <div className="font-medium text-lg dark:text-white">
-                                {task.title}
+    <>
+    	<TasksModal 
+			onSaveTask={onSaveTask}
+			task={task}	//status da task
+			setOpen={setOpenModal}
+			open={openModal}
+	    />
+        <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
+        <div className='text-gray-800'>
+            TO DO
+        </div>
+        <ul className="flex flex-col gap-1">
+            {
+                tasks.map((task) => (
+                    <li className="flex-row bg-white rounded-md shadow-md" key={task.id}>
+                        <div className="flex items-center p-4">
+                            <div className="flex-1 pl-1 mr-16">
+                                <div className="font-medium text-lg dark:text-white">
+                                    {task.title}
+                                </div>
                             </div>
+                            <button className="flex text-right px-2"
+                                onClick={() => updateTask(task)}
+                            >
+                                <PencilIcon className='h-5 w-5 text-gray-800 hover:text-blue-700'/>
+                            </button>
+                            <button className="flex text-right"
+                                onClick={() => removeTask(task.id)}
+                            >
+                                <TrashIcon className='h-5 w-5 text-gray-800 hover:text-blue-800'/>
+                            </button>
                         </div>
-                        <button className="flex text-right px-2"
-                            onClick={() => updateTask(task)}
-                        >
-                            <PencilIcon className='h-5 w-5 text-gray-800 hover:text-blue-700'/>
-                        </button>
-                        <button className="flex text-right"
-                            onClick={() => removeTask(task.id)}
-                        >
-                            <TrashIcon className='h-5 w-5 text-gray-800 hover:text-blue-800'/>
-                        </button>
-                    </div>
-                </li>
-            ))
-        }
-        
-    </ul>
-    </div>
+                    </li>
+                ))
+            }
+            
+        </ul>
+        </div>
+    </>
     )
 }
