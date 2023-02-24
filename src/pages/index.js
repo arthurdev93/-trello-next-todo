@@ -116,7 +116,7 @@ export default function Home() {
 				</header>
 				<div className='flex flex-col py-10 rounded-xl selection:bg-blue-300 '>
 
-					<div className="container flex flex-col items-center justify-center mx-auto rounded-lg dark:bg-gray-800 my-2">
+					<div className="flex flex-row items-center justify-center mx-auto rounded-lg dark:bg-gray-800 my-2">
 						{/* <div className="w-full px-4 py-5 border-b sm:px-6">
 							<h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
 								Task's List
@@ -125,10 +125,10 @@ export default function Home() {
 								Manage your Tasks
 							</p>
 						</div> */}
-						<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 divide-gray-800" key={'dashBoardTableTask'}>
+						<ul className="flex bg-red-500">
 							{
 								tasks.map((task) => (
-									<li className="col-span-1 bg-white rounded-md shadow-md" key={task.id}>
+									<li className="flex-row bg-white rounded-md shadow-md" key={task.id}>
 										<div className="flex items-center p-4">
 											<div className="flex-1 pl-1 mr-16">
 												<div className="font-medium text-lg dark:text-white">
@@ -147,7 +147,6 @@ export default function Home() {
 											</button>
 										</div>
 									</li>
-
 								))
 							}
 							
