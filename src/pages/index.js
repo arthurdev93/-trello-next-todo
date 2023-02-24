@@ -97,7 +97,10 @@ export default function Home() {
 		/>
 		<div className='flex flex-row h-screen w-screen'>
 			<div className='flex w-2/12 bg-gray-700 text-white'> 
-				<div className='text-3xl text-white font-mono'>To Do List</div>	
+				<div className='text-3xl m-3 text-white font-mono'>
+					To Do List
+				
+				</div>	
 			</div>
 			<div className='bg-gray-800 w-8/12'>
 				<header className='flex flex-row p-0 m-3'>
@@ -155,9 +158,9 @@ export default function Home() {
 				</div>
 			</div>
 			<div className='flex w-2/12 bg-gray-700 text-white'> 
-			<h1>
-			MENU DIREITA
-			</h1>
+				<div className='p-3 mx-auto'>
+					<h1>MENU DIREITA</h1>
+				</div>
 			</div>
 		</div>
 	</>
