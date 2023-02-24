@@ -1,6 +1,2 @@
 >>TASK 
-- quando inserir task, gerar botão alert canto superior direito
-
->>DUVIDA
-- selects, como pegar os dados
-- alterar cor botão sweetalert
+- baseado na trello, colunas de diretórios como ex: backlog, sprint...e dentro de cada uma, são inseridas as tarefas em lista...uma abaixo da outra

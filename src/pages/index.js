@@ -95,7 +95,7 @@ export default function Home() {
 			setOpen={setOpenModal}
 			open={openModal}
 		/>
-		<div className='flex flex-row h-screen w-screen'>
+		<div className='flex flex-row gap-2 bg-gray-800 h-screen w-screen'>
 			<div className='flex w-2/12 bg-gray-700 text-white'> 
 				<div className='text-3xl m-3 text-white font-mono'>
 					To Do List
@@ -115,9 +115,9 @@ export default function Home() {
 				</p>
 				</button>
 				</header>
-				<div className='flex flex-col gap-2 bg-gray-700 p-10 rounded-xl mx-3 selection:bg-blue-300 '>
+				<div className='flex flex-col py-10 rounded-xl selection:bg-blue-300 '>
 
-					<div className="container flex flex-col items-center justify-center w-full mx-auto bg-white rounded-lg shadow dark:bg-gray-800 my-2">
+					<div className="container flex flex-col items-center justify-center mx-auto rounded-lg dark:bg-gray-800 my-2">
 						{/* <div className="w-full px-4 py-5 border-b sm:px-6">
 							<h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
 								Task's List
@@ -126,11 +126,11 @@ export default function Home() {
 								Manage your Tasks
 							</p>
 						</div> */}
-						<ul className="grid grid-flow-col w-full">
+						<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 divide-gray-800" key={'dashBoardTableTask'}>
 							{
 								tasks.map((task) => (
-									<li className="inline-flex" key={task.id}>
-										<div className="flex items-center flex-1 p-4">
+									<li className="col-span-1 bg-white rounded-md shadow-md" key={task.id}>
+										<div className="flex items-center p-4">
 											<div className="flex-1 pl-1 mr-16">
 												<div className="font-medium text-lg dark:text-white">
 													{task.title}

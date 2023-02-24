@@ -1,6 +1,6 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { UsersIcon } from '@heroicons/react/24/outline';
-import { Combobox, Dialog, Transition } from '@headlessui/react';
+import { Combobox } from '@headlessui/react';
 
 const people = [
   { id: 1, name: 'Leslie Alexander', url: '#' },
@@ -58,7 +58,7 @@ export default function searchField() {
                 {query !== '' && filteredPeople.length === 0 && (
                   <div className="py-14 px-4 text-center sm:px-14">
                     <UsersIcon className="mx-auto h-6 w-6 text-gray-400" aria-hidden="true" />
-                    <p className="mt-4 text-sm text-gray-900">No people found using that search term.</p>
+                    <p className="mt-4 text-sm text-gray-900">No task found using that search term.</p>
                   </div>
                 )}
               </Combobox>
