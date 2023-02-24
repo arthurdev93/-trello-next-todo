@@ -1,7 +1,6 @@
 import _ from 'lodash';		//lodash tem varias funções utilitárias, como encontrar índices de elementos em um array
 import { useEffect, useState } from 'react';	//hooks de estado e efeito do ReactJS
 import {PencilIcon, TrashIcon} from '@heroicons/react/24/solid';
-import { PlusIcon as PlusIconMini } from '@heroicons/react/20/solid';
 import Swal from 'sweetalert2';
 //cuidar ordem imports - ext/int
 import SearchField from '@/components/SearchField';
