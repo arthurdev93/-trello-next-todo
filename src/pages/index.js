@@ -104,7 +104,7 @@ export default function Home() {
 			</div>
 			<div className='bg-gray-800 w-8/12'>
 				<header className='flex flex-row p-0 m-3'>
-					<div className="container my-auto mx-2">
+					<div className="container my-auto">
 						<SearchField />
 					</div>
 				<button className='flex flex-none justify-center items-center rounded-md border px-2 text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
@@ -115,21 +115,21 @@ export default function Home() {
 				</p>
 				</button>
 				</header>
-				<div className='flex flex-col w-1/2 gap-2 bg-gray-100 py-7 px-10 rounded-xl m-auto shadow-lg selection:bg-blue-300 '>
+				<div className='flex flex-col gap-2 bg-gray-700 p-10 rounded-xl mx-3 selection:bg-blue-300 '>
 
 					<div className="container flex flex-col items-center justify-center w-full mx-auto bg-white rounded-lg shadow dark:bg-gray-800 my-2">
-						<div className="w-full px-4 py-5 border-b sm:px-6">
+						{/* <div className="w-full px-4 py-5 border-b sm:px-6">
 							<h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
 								Task's List
 							</h3>
 							<p className="max-w-2xl mt-1 text-sm text-gray-500 dark:text-gray-200">
 								Manage your Tasks
 							</p>
-						</div>
-						<ul className="flex flex-col divide-y divide w-full">
+						</div> */}
+						<ul className="grid grid-flow-col w-full">
 							{
 								tasks.map((task) => (
-									<li className="flex flex-row" key={task.id}>
+									<li className="inline-flex" key={task.id}>
 										<div className="flex items-center flex-1 p-4">
 											<div className="flex-1 pl-1 mr-16">
 												<div className="font-medium text-lg dark:text-white">
