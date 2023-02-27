@@ -21,6 +21,9 @@ export default function Home() {
 			title: 'Done'
 		}
 	];
+
+	const setOpenModal = useState(false);
+
 	return (
 	<>
 		<div className='flex flex-row gap-2 bg-gray-800 h-screen w-screen'>
@@ -42,12 +45,19 @@ export default function Home() {
 					{
 						lists.map((list) => {
 							return (
-								<div className='bg-gray-300' key={list.id}>
+								<div className='bg-gray-200 rounded-lg p-2 text-xl' key={list.id}>
 									{list.title}
 									<div className='flex flex-col justify-center items-center'>
-									<TaskContainer /> 
-										{/* <TaskContainer /> //da um filter, e manda o array de tasks aqui dentro */}
+									<TaskContainer 
+										
+									/> 
+										{/* <TaskContainer /> //da um filter, para ver de qual lista a task pertence, e manda o array de tasks dentro */}
 									</div>
+									{/* <button className='flex rounded-md border text-sm px-2 text-gray-900 bg-gradient-to-br from-gray-300 to-gray-400 transition ease-in hover:from-gray-400  hover:to-gray-300'
+										onClick={() => setOpenModal(true)}
+									>
+										ADD TASK
+									</button> */}
 								</div>
 							)
 						})

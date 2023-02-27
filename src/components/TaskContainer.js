@@ -92,9 +92,6 @@ export default function TaskContainer() {
 			open={openModal}
 	    />
         <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
-        {/* <div className='text-gray-800'>
-            nome
-        </div> */}
         <ul className="flex flex-col gap-1">	
 			{
                 tasks.map((task) => (
@@ -131,10 +128,14 @@ export default function TaskContainer() {
                         </div>
                     </li>
                 ))
-            }
-            
-        </ul>
-        </div>
+            }            
+        </ul> 
+		</div> 									
+		<button className='flex rounded-md border mr-auto text-sm px-2 text-gray-900 bg-gradient-to-br from-gray-300 to-gray-400 transition ease-in hover:from-gray-400  hover:to-gray-300'
+			onClick={() => setOpenModal(true)}
+		>
+			ADD TASK
+		</button> 
     </>
     )
-}
+} 
