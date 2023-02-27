@@ -6,7 +6,7 @@ import RightMenu from '@/components/RightMenu';
 import SearchField from '@/components/SearchField';
 import TaskContainer from '@/components/TaskContainer';
 
-const lists = [
+const listsData = [
 	{
 		id: '123',
 		title: 'To Do'
@@ -22,11 +22,12 @@ const lists = [
 ];
 
 export default function Home() {
-	const [list, setList] = useState(lists);
+	const [lists, setLists] = useState(listsData);
 	const [tasks, setTasks] = useState([]);
 
 	useEffect(()=>{
-		console.log(tasks)
+		console.log('opa')
+		setLists(lists);
 	},[tasks])
 
 	return (
@@ -43,21 +44,21 @@ export default function Home() {
 				</header>
 				<div className='flex flex-row justify-center py-10 gap-4'>
 					{
-						lists.map((listData) => {
+						lists.map((list) => {
 							return (
-								<div className='bg-gray-200 rounded-lg p-2 text-xl' key={listData.id}>
-									{listData.title}
+								<div className='bg-gray-200 rounded-lg p-2 text-xl' key={list.id}>
+									{list.title}
 									<div className='flex flex-col justify-center items-center'>
 										<TaskContainer 
-											name={listData.title}
+											name={list.title}
 											listTasks={_.filter(
 												tasks,
 												{
-													list: listData.id
+													list: list.id
 												}
 											)}
-											list={list}
-											listData={listData}
+											lists={lists}
+											listData={list}
 											onChangeTask={setTasks}	
 										/> 
 									</div>

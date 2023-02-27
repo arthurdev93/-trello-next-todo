@@ -5,10 +5,13 @@ import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import TasksModal from '@/components/tasks/TasksModal';
 
 
-export default function TaskContainer({listTasks, onChangeTask, list, listData}) {
+export default function TaskContainer({listTasks, onChangeTask, lists, listData}) {
     const [openModal, setOpenModal] = useState (false);
 	const [task, setTask] = useState({});
 	const [tasks, setTasks] = useState(listTasks);
+	useEffect(() => {
+		console.log(listData.title, 'listTasks', listTasks)
+	}, [listTasks]);
 
     //onSaveTask é chamada quando uma tarefa é criada ou atualizada no modal
 	const onSaveTask = (action, taskData) => {
@@ -20,7 +23,7 @@ export default function TaskContainer({listTasks, onChangeTask, list, listData})
 				{
 					...taskData, 
 					id: newTaskId,
-					list: '123'
+					list: listData.id
 				}
 			]) //Se uma tarefa existente estiver sendo atualizada, é encontrada pelo seu ID e atualizada no array de tarefas
 
@@ -32,7 +35,8 @@ export default function TaskContainer({listTasks, onChangeTask, list, listData})
 				setTasks(newTasks)			
 			} 
 		}
-		// setTask({}) 	//para após atualizar, limpar a task, para não gerar nenhum conflito na proxima criação
+		onChangeTask(task) 	//para após atualizar, limpar a task, para não gerar nenhum conflito na proxima criação
+		 console.log('aqui')
 		setOpenModal(false);	//para fechar o modal, apos clicar no botao
 		Swal.fire({
 			position: 'top-end',
@@ -51,9 +55,9 @@ export default function TaskContainer({listTasks, onChangeTask, list, listData})
 	}, [openModal]
 	) 
 
-	useEffect(()=>{
-		onChangeTask(tasks);
-	},[tasks])
+	// useEffect(()=>{
+	// 	onChangeTask(tasks);
+	// },[tasks])
 
     const removeTask = (taskID) => {
 		Swal.fire({
@@ -89,7 +93,7 @@ export default function TaskContainer({listTasks, onChangeTask, list, listData})
 			task={task}	//status da task
 			setOpen={setOpenModal}
 			open={openModal}
-			list={list}
+			list={lists}
 			listCol={listData}
 	    />
         <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
