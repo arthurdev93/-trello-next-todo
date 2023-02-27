@@ -7,7 +7,20 @@ import SearchField from '@/components/SearchField';
 import TaskContainer from '@/components/TaskContainer';
 
 export default function Home() {
-
+	const lists = [
+		{
+			id: '123',
+			title: 'To Do'
+		},
+		{
+			id: '456',
+			title: 'Doing'
+		},
+		{
+			id: '789',
+			title: 'Done'
+		}
+	];
 	return (
 	<>
 		<div className='flex flex-row gap-2 bg-gray-800 h-screen w-screen'>
@@ -26,9 +39,11 @@ export default function Home() {
 				</button>
 				</header>
 				<div className='flex flex-row justify-center py-10 gap-4'>
-					<TaskContainer />
-					<TaskContainer />
-					<TaskContainer />
+					{
+						lists.map((list) => (
+							<TaskContainer key={list.id} title={list.title} tasks={list.tasks}/>
+						))
+					}
 				</div>
 			</div>
 			<div className='flex w-2/12 bg-gray-700 text-white'> 

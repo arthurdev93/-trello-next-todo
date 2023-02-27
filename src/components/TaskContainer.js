@@ -93,10 +93,10 @@ export default function TaskContainer() {
 	    />
         <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
         <div className='text-gray-800'>
-            TO DO
+             Nome lista
         </div>
-        <ul className="flex flex-col gap-1">
-            {
+        <ul className="flex flex-col gap-1">	
+			{
                 tasks.map((task) => (
                     <li className="flex-row bg-white rounded-md shadow-md" key={task.id}>
                         <div className="flex items-center p-4">
