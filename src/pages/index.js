@@ -40,9 +40,17 @@ export default function Home() {
 				</header>
 				<div className='flex flex-row justify-center py-10 gap-4'>
 					{
-						lists.map((list) => (
-							<TaskContainer key={list.id} title={list.title} tasks={list.tasks}/>
-						))
+						lists.map((list) => {
+							return (
+								<div className='bg-gray-300' key={list.id}>
+									{list.title}
+									<div className='flex flex-col justify-center items-center'>
+									<TaskContainer /> 
+										{/* <TaskContainer /> //da um filter, e manda o array de tasks aqui dentro */}
+									</div>
+								</div>
+							)
+						})
 					}
 				</div>
 			</div>

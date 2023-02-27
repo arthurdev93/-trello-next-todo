@@ -12,7 +12,7 @@ export default function TaskContainer() {
 		{
 			id: '123',
 			status: true,
-			title: 'first task'
+			title: 'first task',
 		}
 	]);
 
@@ -92,13 +92,26 @@ export default function TaskContainer() {
 			open={openModal}
 	    />
         <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
-        <div className='text-gray-800'>
-             {task.title}
-        </div>
+        {/* <div className='text-gray-800'>
+            nome
+        </div> */}
         <ul className="flex flex-col gap-1">	
 			{
                 tasks.map((task) => (
                     <li className="flex-row bg-white rounded-md shadow-md" key={task.id}>
+						{/* <div className='flex gap-1 flex-row p-1'>
+							{	
+								task.listData.map((list)=>{
+									const listData = _.find(lists, {id: list});
+
+									return (
+										<div className={'rounded-sm ' + listData.color}>
+											{listData.title}
+										</div>
+									);
+								})
+							}
+						</div> */}
                         <div className="flex items-center p-4">
                             <div className="flex-1 pl-1 mr-16">
                                 <div className="font-medium text-lg dark:text-white">
