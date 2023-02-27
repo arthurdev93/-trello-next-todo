@@ -2,6 +2,7 @@ import _ from 'lodash';		//lodash tem varias funções utilitárias, como encont
 import { useState } from 'react';
 //cuidar ordem imports - ext/int
 import LeftMenu from '@/components/LeftMenu';
+import RightMenu from '@/components/RightMenu';
 import SearchField from '@/components/SearchField';
 import TaskContainer from '@/components/TaskContainer';
 
@@ -24,14 +25,14 @@ export default function Home() {
 					ADD TASK
 				</button>
 				</header>
-				<div className='flex flex-row py-10'>
+				<div className='flex flex-row justify-center py-10 gap-4'>
+					<TaskContainer />
+					<TaskContainer />
 					<TaskContainer />
 				</div>
 			</div>
 			<div className='flex w-2/12 bg-gray-700 text-white'> 
-				<div className='p-3 mx-auto'>
-					<h1>MENU DIREITA</h1>
-				</div>
+				<RightMenu />
 			</div>
 		</div>
 	</>
