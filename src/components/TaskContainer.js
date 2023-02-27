@@ -93,7 +93,7 @@ export default function TaskContainer() {
 	    />
         <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
         <div className='text-gray-800'>
-             Nome lista
+             {task.title}
         </div>
         <ul className="flex flex-col gap-1">	
 			{
