@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Modal from '../shared/Modal';
 import { Fragment, useEffect, useState } from 'react';
 import { CalendarIcon, TagIcon, UserCircleIcon } from '@heroicons/react/20/solid';
@@ -12,25 +13,6 @@ import { Listbox, Transition } from '@headlessui/react';
 // 	},
 //   	// More items...
 // ]
-const labels = [
-	{ 
-        name: 'Unlabelled',
-        value: null
-    },
-	{ 
-        name: 'To Do',
-        value: 'todo' 
-    },
-	{ 
-        name: 'Doing',
-        value: 'doing' 
-    },
-	{ 
-        name: 'Done',
-        value: 'done' 
-    }
-	// More items...
-]
 const dueDates = [
 	{ name: 'No due date', value: null },
 	{ name: 'Today', value: 'today' },
@@ -42,13 +24,16 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function TasksModal({onSaveTask, task, setOpen, open, availableUsers = []}) {
+export default function TasksModal({onSaveTask, task, setOpen, open, availableUsers = [], list, listCol }) {
 
     const [assigned, setAssigned] = useState({ name: 'Unassigned', value: null })
-	const [labelled, setLabelled] = useState(labels[0])
+	const [listData, setListData] = useState(_.find(list,{id:task.list}) || listCol)
 	const [dated, setDated] = useState(dueDates[0])
     const [modalAction, setModalAction] = useState(task.id ? 'update' : 'store');
-    const [taskData, setTaskData] = useState(task); 
+    const [taskData, setTaskData] = useState({
+		...task,
+		list: listData.id
+	}); 
 
 	//abaixo, atualiza os dados da tarefa
 	//setTaskData que atualiza o estado da variável taskData através da criação de um novo objeto com os valores antigos do objeto taskData e com a atualização do atributo especificado com o novo valor passado para a função.
@@ -67,10 +52,13 @@ export default function TasksModal({onSaveTask, task, setOpen, open, availableUs
     
 	//aqui verifico se a task possui ID --então será editada, ou se é uma nova task que estou adc
 	useEffect(() => {
-		setTaskData(task)	
+		setTaskData({
+			...task,
+			list: listData.id
+		});	
 		setModalAction(task.id ? 'update' : 'store');
 		setAssigned(_.find(availableUsers, {name:task.assigned || 'Unassigned'}))	//procurar a ass q está na task, ou por default deixar unassaigned
-	}, [task]);
+	}, [task, listData]);
 
 	//aqui não deixo uma task vazia ser salva
 	const handleSaveTask = () => {
@@ -189,7 +177,7 @@ export default function TasksModal({onSaveTask, task, setOpen, open, availableUs
 						)}
 						</Listbox>
 
-						<Listbox as="div" value={labelled} onChange={setLabelled} className="flex-shrink-0">
+						<Listbox as="div" value={listData} onChange={setListData} className="flex-shrink-0">
 						{({ open }) => (
 							<>
 							<Listbox.Label className="sr-only"> Add a label </Listbox.Label>
@@ -197,18 +185,18 @@ export default function TasksModal({onSaveTask, task, setOpen, open, availableUs
 								<Listbox.Button className="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 py-2 px-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3">
 								<TagIcon
 									className={classNames(
-									labelled.value === null ? 'text-gray-300' : 'text-gray-500',
+									listData.id === null ? 'text-gray-300' : 'text-gray-500',
 									'h-5 w-5 flex-shrink-0 sm:-ml-1'
 									)}
 									aria-hidden="true"
 								/>
 								<span
 									className={classNames(
-									labelled.value === null ? '' : 'text-gray-900',
+									listData.id === null ? '' : 'text-gray-900',
 									'hidden truncate sm:ml-2 sm:block'
 									)}
 								>
-									{labelled.value === null ? 'Label' : labelled.name}
+									{listData.id === null ? 'Label' : listData.title}
 								</span>
 								</Listbox.Button>
 
@@ -220,20 +208,20 @@ export default function TasksModal({onSaveTask, task, setOpen, open, availableUs
 								leaveTo="opacity-0"
 								>
 								<Listbox.Options className="absolute right-0 z-10 mt-1 max-h-56 w-52 overflow-auto rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-									{labels.map((label) => (
+									{list.map((listDataSelected) => (
 									<Listbox.Option
-										key={label.value}
-                                        onChange={(e)=> handleChangeTask('label', label.name)}
+										key={listDataSelected.id}
+                                        // onChange={()=> handleChangeTask('list', listDataSelected.id)}
 										className={({ active }) =>
 										classNames(
 											active ? 'bg-gray-100' : 'bg-white',
 											'relative cursor-default select-none py-2 px-3'
 										)
 										}
-										value={label}
+										value={listDataSelected}
 									>
 										<div className="flex items-center">
-										<span className="block truncate font-medium">{label.name}</span>
+										<span className="block truncate font-medium">{listDataSelected.title}</span>
 										</div>
 									</Listbox.Option>
 									))}

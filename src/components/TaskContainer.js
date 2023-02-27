@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import { useEffect , useState } from 'react';
 import Swal from 'sweetalert2';
-import {PencilIcon, TrashIcon} from '@heroicons/react/24/solid';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import TasksModal from '@/components/tasks/TasksModal';
 
 
-export default function TaskContainer({listTasks, onChangeTask}) {
+export default function TaskContainer({listTasks, onChangeTask, list, listData}) {
     const [openModal, setOpenModal] = useState (false);
 	const [task, setTask] = useState({});
 	const [tasks, setTasks] = useState(listTasks);
@@ -32,7 +32,6 @@ export default function TaskContainer({listTasks, onChangeTask}) {
 				setTasks(newTasks)			
 			} 
 		}
-		onChangeTask(tasks);
 		// setTask({}) 	//para após atualizar, limpar a task, para não gerar nenhum conflito na proxima criação
 		setOpenModal(false);	//para fechar o modal, apos clicar no botao
 		Swal.fire({
@@ -51,6 +50,10 @@ export default function TaskContainer({listTasks, onChangeTask}) {
 		}
 	}, [openModal]
 	) 
+
+	useEffect(()=>{
+		onChangeTask(tasks);
+	},[tasks])
 
     const removeTask = (taskID) => {
 		Swal.fire({
@@ -86,6 +89,8 @@ export default function TaskContainer({listTasks, onChangeTask}) {
 			task={task}	//status da task
 			setOpen={setOpenModal}
 			open={openModal}
+			list={list}
+			listCol={listData}
 	    />
         <div className="flex flex-col items-center rounded-lg bg-gray-300 my-2">
         <ul className="flex flex-col gap-1">	

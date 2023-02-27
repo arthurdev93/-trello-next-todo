@@ -15,7 +15,6 @@ function classNames(...classes) {
 export default function searchField() {
   const [query, setQuery] = useState('')
 
-  //usar lodash no filter
   //scroll
   //limitar dados
   const filteredPeople =
