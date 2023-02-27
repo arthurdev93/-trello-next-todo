@@ -22,7 +22,10 @@ export default function Home() {
 		}
 	];
 
-	const setOpenModal = useState(false);
+	const [list, setList] = useState(lists);
+	const [tasks, setTasks] = useState([]);
+
+	// const setOpenModal = useState(false);
 
 	return (
 	<>
@@ -35,11 +38,11 @@ export default function Home() {
 					<div className="container my-auto">
 						<SearchField />
 					</div>
-				<button className='flex flex-none justify-center items-center rounded-md border px-2 text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
+				{/* <button className='flex flex-none justify-center items-center rounded-md border px-2 text-white bg-gradient-to-br from-sky-500 to-sky-800 transition ease-in hover:from-sky-800 hover:to-sky-500'
 					onClick={() => setOpenModal(true)}
 				>
 					ADD TASK
-				</button>
+				</button> */}
 				</header>
 				<div className='flex flex-row justify-center py-10 gap-4'>
 					{
@@ -48,9 +51,16 @@ export default function Home() {
 								<div className='bg-gray-200 rounded-lg p-2 text-xl' key={list.id}>
 									{list.title}
 									<div className='flex flex-col justify-center items-center'>
-									<TaskContainer 
-										
-									/> 
+										<TaskContainer 
+											name={list.title}
+											listTasks={_.filter(
+												tasks,
+												{
+													list: list.id
+												}
+											)}
+											onChangeTask={setTasks}	
+										/> 
 										{/* <TaskContainer /> //da um filter, para ver de qual lista a task pertence, e manda o array de tasks dentro */}
 									</div>
 									{/* <button className='flex rounded-md border text-sm px-2 text-gray-900 bg-gradient-to-br from-gray-300 to-gray-400 transition ease-in hover:from-gray-400  hover:to-gray-300'

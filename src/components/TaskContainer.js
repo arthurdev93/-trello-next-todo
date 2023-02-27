@@ -5,16 +5,10 @@ import {PencilIcon, TrashIcon} from '@heroicons/react/24/solid';
 import TasksModal from '@/components/tasks/TasksModal';
 
 
-export default function TaskContainer() {
+export default function TaskContainer({listTasks, onChangeTask}) {
     const [openModal, setOpenModal] = useState (false);
 	const [task, setTask] = useState({});
-	const [tasks, setTasks] = useState([
-		{
-			id: '123',
-			status: true,
-			title: 'first task',
-		}
-	]);
+	const [tasks, setTasks] = useState(listTasks);
 
     //onSaveTask é chamada quando uma tarefa é criada ou atualizada no modal
 	const onSaveTask = (action, taskData) => {
@@ -25,7 +19,8 @@ export default function TaskContainer() {
 				...tasks, 
 				{
 					...taskData, 
-					id: newTaskId
+					id: newTaskId,
+					list: '123'
 				}
 			]) //Se uma tarefa existente estiver sendo atualizada, é encontrada pelo seu ID e atualizada no array de tarefas
 
@@ -36,9 +31,10 @@ export default function TaskContainer() {
 				newTasks[taskIndex] = taskData;
 				setTasks(newTasks)			
 			} 
-		} 
+		}
+		onChangeTask(tasks);
 		// setTask({}) 	//para após atualizar, limpar a task, para não gerar nenhum conflito na proxima criação
-		setOpenModal(false)	//para fechar o modal, apos clicar no botao
+		setOpenModal(false);	//para fechar o modal, apos clicar no botao
 		Swal.fire({
 			position: 'top-end',
 			icon: 'success',
@@ -131,7 +127,7 @@ export default function TaskContainer() {
             }            
         </ul> 
 		</div> 									
-		<button className='flex rounded-md border mr-auto text-sm px-2 text-gray-900 bg-gradient-to-br from-gray-300 to-gray-400 transition ease-in hover:from-gray-400  hover:to-gray-300'
+		<button className='flex rounded-md border mr-auto mt-2 text-sm px-2 text-gray-900 bg-gradient-to-br from-gray-300 to-gray-400 transition ease-in hover:from-gray-400  hover:to-gray-300'
 			onClick={() => setOpenModal(true)}
 		>
 			ADD TASK
